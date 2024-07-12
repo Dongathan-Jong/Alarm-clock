@@ -1,0 +1,80 @@
+
+#define digit11 A5
+#define digit12 A4
+#define digit13 0
+#define digit14 1
+
+#define digit21 2
+#define digit22 3
+#define digit23 4
+#define digit24 5
+
+#define digit31 6
+#define digit32 7
+#define digit33 8
+#define digit34 9
+
+#define digit41 10
+#define digit42 11
+#define digit43 12
+#define digit44 13
+
+#define leftButton A1
+#define middleButton A2
+#define rightButton A3
+#define buzzer A0
+
+int minutes = 0;
+int seconds = 0;
+int minutesTens = 0;
+int minutesOnes = 0;
+int hours = 12;
+int hoursTens = 1;
+int hoursOnes = 2;
+
+int alarmMinute = 0;
+int alarmMinuteOnes = 0;
+int alarmMinuteTens = 0;
+int alarmHour = 0;
+int alarmHourOnes = 0;
+int alarmHourTens = 0;
+
+boolean middleButtonPressed = false;
+boolean copyTime = false;
+
+void setup()
+{
+  pinMode(digit11, OUTPUT);
+  pinMode(digit12, OUTPUT);
+  pinMode(digit13, OUTPUT);
+  pinMode(digit14, OUTPUT);
+  
+  pinMode(digit21, OUTPUT);
+  pinMode(digit22, OUTPUT);
+  pinMode(digit23, OUTPUT);
+  pinMode(digit24, OUTPUT);
+  
+  pinMode(digit31, OUTPUT);
+  pinMode(digit32, OUTPUT);
+  pinMode(digit33, OUTPUT);
+  pinMode(digit34, OUTPUT);
+ 
+  pinMode(digit41, OUTPUT);
+  pinMode(digit42, OUTPUT);
+  pinMode(digit43, OUTPUT);
+  pinMode(digit44, OUTPUT);
+  
+  pinMode(leftButton, INPUT);
+  pinMode(middleButton, INPUT);
+  pinMode(rightButton, INPUT);
+  pinMode(buzzer, OUTPUT);
+  
+  digitalWrite(digit32,HIGH);
+  digitalWrite(digit41,HIGH);
+}
+
+
+void loop()
+{
+  
+}
