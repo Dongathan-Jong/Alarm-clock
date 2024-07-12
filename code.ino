@@ -24,13 +24,14 @@
 #define rightButton A3
 #define buzzer A0
 
-int minutes = 0;
-int seconds = 0;
+int minutes = 12;
+int seconds = 30;
 int minutesTens = 0;
 int minutesOnes = 0;
 int hours = 12;
 int hoursTens = 1;
 int hoursOnes = 2;
+int time = 0000;
 
 int alarmMinute = 0;
 int alarmMinuteOnes = 0;
@@ -76,5 +77,47 @@ void setup()
 
 void loop()
 {
+  if(middleButtonPressed == false)
+  {
+    if(digitalRead(middleButton) == 1)
+    {
+      middleButtonPressed = true;
+      copyTime = true;
+      tone(buzzer,440,100);
+      delay(5000);
+    } 
+  }
+  
+  if(middleButtonPressed)
+  {
+    if(digitalRead(middleButton) == 1)
+    {
+       middleButtonPressed = false;
+       tone(buzzer,440,100);
+       delay(5000);
+      
+    }
+  }
+ 
+  if(middleButtonPressed)
+  {
+    alarmMode();
+  }
+ 
+  if(middleButtonPressed == false)
+  {
+    if(digitalRead(rightButton) == 1)
+	{
+      minutes++;
+	  delay(100);
+    }
+    
+    if(digitalRead(leftButton) == 1)
+    {
+      hours++;
+      delay(100);
+    }
+  }
+  
   
 }
