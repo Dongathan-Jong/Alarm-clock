@@ -105,19 +105,44 @@ void loop()
   }
  
   if(middleButtonPressed == false)
-  {
-    if(digitalRead(rightButton) == 1)
-	{
-      minutes++;
-	  delay(100);
-    }
-    
-    if(digitalRead(leftButton) == 1)
+  {if(digitalRead(leftButton) == 1)
     {
       hours++;
       delay(100);
     }
+    if(digitalRead(rightButton) == 1)
+	{
+      minutes++;
+	  delay(100);
+    
+    
+  }
+
+	if(seconds == 60)
+  {
+    seconds = 0;
+    minutes++;
+  }
+  if(hours == 24)
+  {
+   	hours = 0; 
+    hoursOnes = 0;
+    hoursTens = 0;
+  }
+  if(minutes == 60)
+  {
+    minutes = 0;
+    hours--;
   }
   
+  
+  minutesOnes = minutes % 10;
+  minutesTens = minutes / 10;
+  
+  if(middleButtonPressed == false)
+  {
+    delay(1012);
+  	seconds++;
+  }
   
 }
