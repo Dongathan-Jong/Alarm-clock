@@ -144,5 +144,282 @@ void loop()
     delay(1012);
   	seconds++;
   }
+
+    minutesOnes = minutes % 10;
+  minutesTens = minutes / 10;
   
+  hoursOnes = hours % 10;
+  hoursTens = hours / 10;
+  
+  if(middleButtonPressed == false)
+  {
+    updateTime();
+  }
+  
+  if(minutes == alarmMinute && hours == alarmHour && middleButtonPressed == false)
+  {
+    while(digitalRead(rightButton) == 0)
+    {
+      tone(buzzer, 440,250);
+      delay(500);
+      
+    }
+  }
+}
+
+
+void updateTime()
+{
+  switch(minutesOnes)
+  {
+    case 0:
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+     	digitalWrite(digit11,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit12,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit12,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 5:
+    	// display 5
+   	    digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit12,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 7:
+    	// display 7
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit12,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 8:
+    	// display 8
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit14,HIGH);
+    	break;
+    case 9:
+    	// display 9
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,LOW);
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit14,HIGH);
+    	break;
+  }
+  
+  switch(minutesTens)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	digitalWrite(digit21,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	digitalWrite(digit22,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	digitalWrite(digit21,HIGH);
+    	digitalWrite(digit22,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	digitalWrite(digit23,HIGH);
+    	break;
+    case 5:
+    	// display 5
+    	digitalWrite(digit21,HIGH);
+    	digitalWrite(digit23,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,LOW);
+    	digitalWrite(digit24,LOW);
+    	digitalWrite(digit22,HIGH);
+    	digitalWrite(digit23,HIGH);
+    	break;
+  }
+  switch(hoursOnes)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit34,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit31,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit32,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit32,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 5:
+    	// display 5
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit32,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 7:
+    	// display 7
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit32,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 8:
+    	// display 8
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit34,HIGH);
+    	break;
+    case 9:
+    	// display 9
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit34,HIGH);
+    	break;
+  }
+  
+  switch(hoursTens)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit42,LOW);
+    	digitalWrite(digit41,LOW);
+    	digitalWrite(digit43,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit41,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit41,LOW);
+    	digitalWrite(digit42,HIGH);
+    	break;
+  }
 }
