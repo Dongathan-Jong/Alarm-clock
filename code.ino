@@ -423,3 +423,223 @@ void updateTime()
     	break;
   }
 }
+
+
+void alarmMode()
+{
+  if(copyTime)
+  {
+    alarmMinute = minutes;
+    alarmHour = hours;
+    copyTime = false;
+  }
+    
+  alarmMinuteOnes = alarmMinute % 10;
+  alarmMinuteTens = alarmMinute / 10;
+  	
+  alarmHourOnes = alarmHour % 10;
+  alarmHourTens = alarmHour / 10;
+     
+  if(digitalRead(rightButton) == 1)
+  {
+    alarmMinute++;
+    delay(100);
+  }
+  
+  if(digitalRead(leftButton) == 1)
+  {
+    alarmHour++;
+    delay(100);
+  }
+  
+  if(alarmHour == 24)
+  {
+    // set hours to 0
+   	alarmHour = 0; 
+    alarmHourOnes = 0;
+    alarmHourTens = 0;
+  }
+  
+  if(alarmMinute == 60)
+  {
+    // set hours to 0
+   	alarmHour++; 
+  }
+  
+ 
+  
+  switch(alarmMinuteOnes)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit14,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit11,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit12,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 5:
+    	// display 5
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit12,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	digitalWrite(digit11,LOW);
+    	break;
+    case 7:
+    	// display 7
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit12,HIGH);
+    	digitalWrite(digit13,HIGH);
+    	break;
+    case 8:
+    	// display 8
+    	digitalWrite(digit11,LOW);
+    	digitalWrite(digit12,LOW);
+    	digitalWrite(digit13,LOW);
+    	digitalWrite(digit14,HIGH);
+    	break;
+    case 9:
+    	// display 9
+    	digitalWrite(digit11,HIGH);
+    	digitalWrite(digit14,HIGH);
+    	break;
+  }
+  switch(alarmMinuteTens)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit23,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit21,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit21,HIGH);
+    	digitalWrite(digit22,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit21,LOW);
+    	digitalWrite(digit22,LOW);
+    	digitalWrite(digit23,HIGH);
+    	break;
+    case 5:
+    	// display 5
+    	digitalWrite(digit21,HIGH);
+    	digitalWrite(digit23,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit22,HIGH);
+    	digitalWrite(digit23,HIGH);
+    	digitalWrite(digit21,LOW);
+    	break;
+  }
+  switch(alarmHourOnes)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit34,LOW);
+    	digitalWrite(digit32,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit31,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit32,HIGH);
+    	break;
+    case 3:
+    	// display 3
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit32,HIGH);
+    	break;
+    case 4:
+    	// display 4
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 5:
+    	// display 5
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 6:
+    	// display 6
+    	digitalWrite(digit32,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	digitalWrite(digit31,LOW);
+    	break;
+    case 7:
+    	// display 7
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit32,HIGH);
+    	digitalWrite(digit33,HIGH);
+    	break;
+    case 8:
+    	// display 8
+    	digitalWrite(digit31,LOW);
+    	digitalWrite(digit32,LOW);
+    	digitalWrite(digit33,LOW);
+    	digitalWrite(digit34,HIGH);
+    	break;
+    case 9:
+    	// display 9
+    	digitalWrite(digit31,HIGH);
+    	digitalWrite(digit34,HIGH);
+    	break;
+  }
+  
+  switch(alarmHourTens)
+  {
+    case 0:
+    	// display 0
+    	digitalWrite(digit42,LOW);
+    	digitalWrite(digit41,LOW);
+    	digitalWrite(digit43,LOW);
+    	break;
+    case 1:
+    	// display 1
+    	digitalWrite(digit41,HIGH);
+    	break;
+    case 2:
+    	// display 2
+    	digitalWrite(digit41,LOW);
+    	digitalWrite(digit42,HIGH);
+    	break;
+  }
+}
